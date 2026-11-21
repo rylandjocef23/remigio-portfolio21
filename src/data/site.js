@@ -3,7 +3,7 @@ export const site = {
   name: 'Ryland Jocef Remigio',
   nickname: 'Ry',
   email: 'rylandjocef21@gmail.com',
-  location: 'Olongapo City, Zambales, Philippines',
+  location: 'Antipolo, San Antonio, Zambales, Philippines',
   school: 'College of Computer Studies, Gordon College',
 
   // Add your profile URLs (for example 'https://github.com/your-username').
