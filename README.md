@@ -1,4 +1,4 @@
-# Ry Remigio | Portfolio
+# Ryland Jocef Remigio | Portfolio Website
 
 React + Vite + Tailwind CSS v4 + React Router.
 
@@ -12,7 +12,7 @@ npm run build    # production build in /dist
 
 ## Update your content
 
-- `src/data/site.js`: email, location, **GitHub and LinkedIn links**, optional form endpoint
+- `src/data/site.js`: email, location, **GitHub link**, optional form endpoint
 - `src/data/projects.js`: project cards (title, text, screenshot, tags, links)
 - `src/data/skills.js`: skills on the About page
 - `public/images/`: screenshots and your photo
