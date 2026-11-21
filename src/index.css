@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
+
+  --color-night: #080d1c;
+  --color-panel: #0f162b;
+  --color-mist: #a3b1c6;
+
+  --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-draw: draw 1.2s cubic-bezier(0.6, 0, 0.2, 1) 0.1s both;
+  --animate-pop: pop 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-sheen: sheen 10s ease-in-out infinite alternate;
+  --animate-drift-a: drift-a 32s ease-in-out infinite alternate;
+  --animate-drift-b: drift-b 38s ease-in-out infinite alternate;
+  --animate-drift-c: drift-a 44s ease-in-out infinite alternate-reverse;
+  --animate-cue: cue 2.2s ease-in-out 1.6s infinite;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes sheen {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+  }
+  @keyframes drift-a {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-6vmax, 8vmax, 0); }
+  }
+  @keyframes drift-b {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(8vmax, -6vmax, 0); }
+  }
+  @keyframes cue {
+    0% { transform: translateY(-100%); }
+    60%, 100% { transform: translateY(100%); }
+  }
+}
+
+@layer base {
+  :root {
+    --brand-gradient: linear-gradient(120deg, #67e8f9 0%, #a78bfa 55%, #f0abfc 100%);
+  }
+
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-night font-sans text-slate-100 antialiased;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 3px;
+  }
+}
+
+/* Brand gradient helpers used across the site */
+@utility bg-brand {
+  background-image: var(--brand-gradient);
+}
+
+@utility text-gradient {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* A 1px gradient outline: faint at rest, bright on hover or focus. */
+@layer components {
+  .gradient-ring {
+    position: relative;
+  }
+
+  .gradient-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--brand-gradient);
+    opacity: var(--ring-opacity, 0.28);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .gradient-ring:hover::before,
+  .gradient-ring:focus-within::before {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,32 @@
+export const projects = [
+  {
+    title: 'MindCare Hub',
+    image: '/images/mindcare-preview.png',
+    alt: 'MindCare Hub dashboard showing a wellness score, a heart rate panel and a daily tip',
+    width: 1449,
+    height: 768,
+    text: 'A Progressive Web App designed for student wellness tracking, assessment tests, and biometric monitoring.',
+    tags: ['React', 'Vite', 'Tailwind', 'Firebase'],
+    links: [{ label: 'Live site', href: 'https://mindcare-hub21.web.app/' }],
+  },
+  {
+    title: 'Gordon Heights Bulletin',
+    image: '/images/gordon-heights-preview.svg',
+    alt: 'Illustration of a city skyline with a location marker, representing the Gordon Heights Bulletin',
+    width: 600,
+    height: 300,
+    text: 'Proposed System: A centralized web-based communication and hazard-monitoring platform for local barangay administration.',
+    tags: ['Web App', 'System Analysis', 'UI/UX'],
+    links: [],
+  },
+  {
+    title: 'FairTrike',
+    image: '/images/fairtrike-preview.svg',
+    alt: 'Illustration of a dotted route between two points, representing the FairTrike ride-booking system',
+    width: 600,
+    height: 300,
+    text: 'Proposed System: A tricycle ride-booking platform focused on trip matching and transparent fare estimation.',
+    tags: ['Booking System', 'Fare Estimation', 'JSON Schema'],
+    links: [],
+  },
+];
